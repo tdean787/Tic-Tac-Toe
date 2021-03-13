@@ -1,8 +1,12 @@
 html {
   background-color: #20414b;
   color: white;
+  font-family: "Roboto", sans-serif;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
 #gameboard {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -14,11 +18,24 @@ html {
   justify-content: center;
 }
 
+.gameResult {
+  text-align: center;
+}
 .title {
   display: flex;
   justify-content: center;
   padding: 1em 0;
   font-size: 3em;
+}
+
+.players {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.players input {
+  margin: 1em;
 }
 
 #controls {
@@ -56,7 +73,7 @@ main {
 }
 #score-1-output,
 #score-2-output {
-  font-size: 2em;
+  font-weight: bold;
 }
 
 .score-container {
@@ -68,7 +85,7 @@ main {
   padding: 2em;
   align-items: start;
   flex-wrap: wrap;
-  max-width: 100px;
+  max-width: 150px;
   text-align: center;
 }
 .Box {
@@ -173,7 +190,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  /* font: inherit; */
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */

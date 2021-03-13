@@ -2,6 +2,22 @@ const gameBoardDOM = document.getElementById("gameboard");
 const resetButton = document.querySelector("#reset");
 const score1Output = document.querySelector("#score-1-output");
 const score2Output = document.querySelector("#score-2-output");
+const gameResult = document.querySelector(".gameResult");
+const setPlayersButton = document.querySelector(".setNames");
+
+let user1 = null;
+let user2 = null;
+
+setPlayersButton.addEventListener("click", function () {
+  const player1Name = document.querySelector(".player1Name");
+  const player2Name = document.querySelector(".player2Name");
+  user1 = player(player1Name.value, "X");
+  user2 = player(player2Name.value, "O");
+  console.log(player2Name.value);
+  return { user1, user2 };
+});
+// const user1 = player("player 1", "X");
+// const user2 = player("player 2", "O");
 
 const player = (name, symbol) => {
   const getSymbol = () => symbol;
@@ -18,20 +34,26 @@ const checkWinner = function (array) {
   const user1Result = array.filter((row) => row == user1.getSymbol());
   const user2Result = array.filter((row) => row == user2.getSymbol());
   if (user1Result.length == 3) {
-    console.log(`Player 1 wins`);
+    gameResult.innerHTML = `${user1.getName()} is the winner!`;
+
     user1.score += 1;
     score1Output.innerHTML = user1.score;
     resetGameboardArray();
   } else if (user2Result.length == 3) {
-    console.log("Player 2 wins");
+    gameResult.innerHTML = `${user2.getName()} is the winner!`;
     user2.score += 1;
     score2Output.innerHTML = user2.score;
     resetGameboardArray();
   }
 };
 
-const user1 = player("Test", "X");
-const user2 = player("Test", "O");
+const checkTie = function () {
+  if (gameBoard.gameboard.includes(0)) {
+    console.log("game ongoing");
+  } else {
+    gameResult.innerHTML = "Game is a tie!";
+  }
+};
 
 const gameBoard = {
   gameboard: [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -41,8 +63,7 @@ const gameBoard = {
 const renderGameboard = (function () {
   for (let i = 0; i < gameBoard.gameboard.length; i++) {
     let div = document.createElement("div");
-    // div.innerHTML = "☐";
-    div.innerHTML = "";
+    // div.innerHTML = "";
     div.className = `Box`;
     div.id = i;
     gameBoardDOM.appendChild(div);
@@ -75,6 +96,7 @@ const displayController = (element) => {
   checkWinner(col1);
   checkWinner(col2);
   checkWinner(col3);
+  checkTie();
 };
 
 document.getElementById("gameboard").addEventListener("click", function (e) {
@@ -85,6 +107,7 @@ resetButton.addEventListener("click", function () {
   let boxes = document.querySelectorAll(".Box");
   boxes.forEach((element) => (element.innerHTML = ""));
   gameBoard.playerTurn = "player1";
+  gameResult.innerHTML = "";
 });
 
 function resetGameboardArray() {

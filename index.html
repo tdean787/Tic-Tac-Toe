@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section class="title">
       <h1>Tic-Tac-Toe</h1>
     </section>
+    <div class="players">
+      <input class="player1Name" type="text" placeholder="Player 1 Name" />
+      <input class="player2Name" type="text" placeholder="Player 2 Name" />
+      <button class="setNames">Set Player Names</button>
+    </div>
     <main>
       <section class="game">
         <div class="gameboard-container">
@@ -29,7 +39,7 @@
         </div>
       </section>
     </main>
-
+    <div class="gameResult">winner</div>
     <script src="script.js"></script>
   </body>
 </html>
