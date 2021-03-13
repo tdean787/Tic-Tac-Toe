@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-</head>
-<body>
-    <div id="gameboard"></div>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <section class="title">
+      <h1>Tic-Tac-Toe</h1>
+    </section>
+    <main>
+      <section class="game">
+        <div class="gameboard-container">
+          <div id="gameboard"></div>
+        </div>
+        <div id="controls">
+          <button class="btn" id="reset">Reset The Game</button>
+        </div>
+      </section>
+      <section class="score-container">
+        <div class="player-1-score">
+          Player 1 score: <span id="score-1-output"></span>
+        </div>
+        <br />
+        <div class="player-2-score">
+          Player 2 score: <span id="score-2-output"></span>
+        </div>
+      </section>
+    </main>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
